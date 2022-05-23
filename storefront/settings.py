@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',    
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'playground',
     'store',
     'store_custom',
@@ -152,4 +153,8 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS': False,
     }
+
+REST_FRAMEWORK ={
+    'COERCE_DECIMAL_TO_STRING' : False
+}
 
