@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.db.models import Value, F,Func
 from django.db.models.functions import Concat
 from django.contrib.contenttypes.models import ContentType
-from store.models import Collection, Product, Customer
+from store.models import Collection, Product, customer
 from tags.models import TaggedItem
 
 
