@@ -1,15 +1,24 @@
+from cgitb import lookup
 from django.urls import include, path
 from rest_framework_nested import routers
-from .views import ProductViewSet, CollectionViewSet, ReviewViewSet
+
+
+from .views import ProductViewSet, CollectionViewSet, ReviewViewSet, CartViewSet, CartItemViewSet
 #from pprint import pprint
 
 router = routers.DefaultRouter()
 router.register('products', ProductViewSet, basename='products')
 router.register('collections', CollectionViewSet,  basename='collections')
 router.register('reviews',ReviewViewSet,  basename='reivews')
-products_router = routers.NestedDefaultRouter(router, r'products', lookup='product')
-products_router.register(r'reviews', ReviewViewSet, basename='product-reivews')
-urlpatterns= router.urls + products_router.urls
+router.register('carts', CartViewSet, basename='carts' )
+
+products_router = routers.NestedDefaultRouter(router, 'products', lookup='product')
+products_router.register('reviews', ReviewViewSet, basename='product-reivews')
+
+cart_router = routers.NestedDefaultRouter(router, 'carts', lookup='cart')
+cart_router.register('items',CartItemViewSet, basename='cart-items')
+
+urlpatterns= router.urls + products_router.urls + cart_router.urls
 # urlpatterns = [
 #     path(r'', include(router.urls)),
 #     path(r'', include(products_router.urls)),

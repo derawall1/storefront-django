@@ -40,11 +40,10 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'playground',
-    'store',
-    'store_custom',
+    'store',    
     'tags',
-    'likes'
-    
+    'likes',
+    'core',
     
 ]
 
@@ -161,3 +160,4 @@ REST_FRAMEWORK ={
     #'PAGE_SIZE' : 10
 }
 
+AUTH_USER_MODEL = 'core.User'
