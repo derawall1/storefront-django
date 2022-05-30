@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib import admin
 from django.conf import settings
 
+from store import permissions
+
 # customer
 
 class Customer(models.Model):
@@ -34,3 +36,6 @@ class Customer(models.Model):
         return f'{self.user.first_name } {self.user.last_name}' 
     class Meta:
         ordering = ['user__first_name', 'user__last_name']
+        permissions =[
+            ('view_history', 'Can view history')
+        ]

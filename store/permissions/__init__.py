@@ -1,0 +1,3 @@
+from .isadminorreadonly import IsAdminOrReadOnly
+from .fulldjangomodelpermission import FullDjangoModelPermission
+from .viewcustomerhistorypermission import ViewCustomerHistoryPermission

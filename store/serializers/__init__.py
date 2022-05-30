@@ -4,3 +4,4 @@ from .reviewserializer import ReviewSerializer
 from .cartserializer import CartSerializer
 from .cartitemserializer import CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
 from .simpleproductserializer import SimpleProductSerializer
+from .customerserializer import CustomerSerializer

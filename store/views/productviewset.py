@@ -6,6 +6,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from store.filters import ProductFilter
 from store.models import OrderItem, Product
 from store.pagination import DefaultPagination
+from store.permissions import IsAdminOrReadOnly
 from store.serializers import ProductSerializer
 
 class ProductViewSet(ModelViewSet):
@@ -14,6 +15,7 @@ class ProductViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = ProductFilter
     pagination_class = DefaultPagination
+    permission_classes = [IsAdminOrReadOnly]
     search_fields = ['title', 'description']
     ordering_fields = ['unit_price', 'last_update']
 
