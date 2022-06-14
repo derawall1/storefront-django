@@ -3,7 +3,11 @@ from django.urls import include, path
 from rest_framework_nested import routers
 
 
-from .views import ProductViewSet, CollectionViewSet, ReviewViewSet, CartViewSet, CartItemViewSet, CustomerViewSet
+from .views import \
+    ProductViewSet, CollectionViewSet, \
+    ReviewViewSet, CartViewSet, \
+    CartItemViewSet, CustomerViewSet, \
+    OrderViewSet, ProductImageViewSet
 #from pprint import pprint
 
 router = routers.DefaultRouter()
@@ -12,9 +16,10 @@ router.register('collections', CollectionViewSet,  basename='collections')
 router.register('reviews',ReviewViewSet,  basename='reivews')
 router.register('carts', CartViewSet, basename='carts' )
 router.register('customers', CustomerViewSet, basename='customers' )
-
+router.register('orders', OrderViewSet, basename='orders' )
 products_router = routers.NestedDefaultRouter(router, 'products', lookup='product')
 products_router.register('reviews', ReviewViewSet, basename='product-reivews')
+products_router.register('images', ProductImageViewSet, basename='product-images')
 
 cart_router = routers.NestedDefaultRouter(router, 'carts', lookup='cart')
 cart_router.register('items',CartItemViewSet, basename='cart-items')

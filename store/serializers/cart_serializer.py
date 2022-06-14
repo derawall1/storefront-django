@@ -3,7 +3,7 @@
 from rest_framework import serializers
 
 from store.models.cart import Cart
-from store.serializers.cartitemserializer import CartItemSerializer
+from store.serializers.cart_item_serializer import CartItemSerializer
 
 class CartSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(read_only = True)
