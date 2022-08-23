@@ -1,3 +1,8 @@
 {
-    "python.poetryPath": ". /home/derawall/.local/share/virtualenvs/storefront-WAjNsl3-/bin/python"
+    "python.poetryPath": ". /home/derawall/.local/share/virtualenvs/storefront-WAjNsl3-/bin/python",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
